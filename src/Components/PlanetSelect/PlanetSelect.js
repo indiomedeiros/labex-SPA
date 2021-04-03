@@ -1,18 +1,9 @@
 import React from 'react'
-import styled from 'styled-components'
-
-const Select = styled.select `
-    width: 100px;
-    height: 30px;
-    border: 0.5px solid #a1a1a1;
-    color:#a1a1a1;
-    outline: none;
-`
+import { Select } from './styledPlanetSelect'
 
 export default function PlanetSelect(props) {
     return (
 
-        //seletor de planetas
         <Select defaultValue onChange={props.onchange} name={props.name}>
             <option value={"planeta"}>Planeta</option>
             <option value={"Mercúrio"}>Mercúrio</option>

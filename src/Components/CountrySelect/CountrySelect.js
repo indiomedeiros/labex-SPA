@@ -1,17 +1,9 @@
 import React from 'react'
-import styled from 'styled-components'
+import { Select } from './styledCountrySelect'
 
-const Select = styled.select `
-     width: 100px;
-    height: 30px;
-    border: 0.5px solid #a1a1a1;
-    color:#a1a1a1;
-    outline: none;
-`
 
 export default function Country (props) {
 
-    //seletor de países
     return (<Select defaultValue onChange={props.onchange} name={props.name}>
                 <option>País</option>
                 <option value="África do Sul">África do Sul</option>
