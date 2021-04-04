@@ -1,13 +1,10 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
+import { goToListTripPage } from "../../Coordinator/coordinator";
 import { Body, Button, H1, Img } from "./styledHomePage";
 
 export default function HomePage() {
   const history = useHistory();
-
-  const goToPage = (path) => {
-    history.push(path);
-  };
 
   return (
     <Body>
@@ -21,7 +18,7 @@ export default function HomePage() {
       </H1>
       <Button
         onClick={() => {
-          goToPage("/trips/list");
+          goToListTripPage(history);
         }}
       >
         Quero ver todas as viagens

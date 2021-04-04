@@ -1,5 +1,12 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
+import {
+  goToApplicationFormPage,
+  goToCreateTripPage,
+  goToHomePage,
+  goToListTripPage,
+  goToLoginPage,
+} from "../../Coordinator/coordinator";
 import { ButtonCreate } from "../../Pages/CreateTripPage/styledCreateTripPage";
 import { ButtonLabex, ButtonNav, Header, Span } from "./styledNavbar";
 
@@ -7,12 +14,9 @@ export default function Navbar() {
   const history = useHistory();
   const token = localStorage.getItem("token");
 
-  const goToPage = (path) => {
-    history.push(path);
-  };
-  const logout = (path) => {
+  const logout = () => {
     localStorage.removeItem("token");
-    history.push(path);
+    goToLoginPage();
   };
 
   return (
@@ -20,7 +24,7 @@ export default function Navbar() {
       <div>
         <ButtonLabex
           onClick={() => {
-            goToPage("/");
+            goToHomePage(history);
           }}
         >
           {" "}
@@ -30,21 +34,21 @@ export default function Navbar() {
       <div>
         <ButtonNav
           onClick={() => {
-            goToPage("/");
+            goToHomePage(history);
           }}
         >
           Home
         </ButtonNav>
         <ButtonNav
           onClick={() => {
-            goToPage("/trips/list");
+            goToListTripPage(history);
           }}
         >
           Viagens
         </ButtonNav>
         <ButtonNav
           onClick={() => {
-            goToPage("/application-form");
+            goToApplicationFormPage(history);
           }}
         >
           Candidate-se
@@ -52,25 +56,20 @@ export default function Navbar() {
         {!token ? (
           <ButtonNav
             onClick={() => {
-              goToPage("/login");
+              goToLoginPage(history);
             }}
           >
             Login
           </ButtonNav>
         ) : (
-          <ButtonNav
-            name="sair"
-            onClick={() => {
-              logout("/login");
-            }}
-          >
+          <ButtonNav name="sair" onClick={logout}>
             Sair
           </ButtonNav>
         )}
         {token ? (
           <ButtonCreate
             onClick={() => {
-              goToPage("/trips/create");
+              goToCreateTripPage(history);
             }}
           >
             Criar viagem
