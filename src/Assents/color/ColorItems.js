@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 
-//muda botões de criar, candidatar-se e login
 export const Button = styled.button `
     border: none;
     background-color:#102b89;
@@ -13,12 +12,10 @@ export const Button = styled.button `
         background-color:#5C73F2;
     }
 `
-//muda títulos da página de login, criação e candidatar-se
 export const Title = styled.h1 `
     color:#a5b1d9;
 `
 
-//muda todos os botões HOME, Viagens, Candidatate-se, Login.
 export const ButtonsNavigation = styled.button `
     outline: none;
     font-weight:lighter;
@@ -32,7 +29,6 @@ export const ButtonsNavigation = styled.button `
     }
 
 `
-//muda o botão da tela inicial
 export const ButtonHome = styled.button `
     background-color:transparent;
     border-radius: 50px;
